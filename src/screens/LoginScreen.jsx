@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect} from 'react';
 import {
   View, Text, TextInput, TouchableOpacity,
-  StyleSheet, Animated, Easing, Alert
+  StyleSheet, Animated, Easing, Alert, Image
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
@@ -101,8 +101,13 @@ const LoginScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.logoPlaceholder} />
-        <Text style={styles.title}>Bimbel{'\n'}Kebidanan</Text>
+ <View style={styles.logoPlaceholder}>
+  <Image
+    source={require('../assets/images/logo.png')}
+    style={styles.logo}
+  />
+</View>
+        <Text style={styles.title}>J.M. Metha{'\n'}Academy</Text>
       </View>
 
       <Animated.View style={[styles.body, { transform: [{ translateY: slideAnim }] }]}>
@@ -174,13 +179,21 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
     alignItems: 'center',
   },
-  logoPlaceholder: {
-    width: 70,
-    height: 70,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    marginBottom: 10,
-  },
+logoPlaceholder: {
+  width: 70,
+  height: 70,
+  backgroundColor: '#F5F5F5',
+  borderRadius: 10,
+  marginBottom: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+  overflow: 'hidden', 
+},
+logo: {
+  width: '100%',
+  height: '100%',
+  resizeMode: 'contain',
+},
   title: {
     fontSize: 24,
     fontFamily: 'PoetsenOne-Regular',
